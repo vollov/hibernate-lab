@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.connection.datasource">java:comp/env/jdbc/sandboxDB</property>
+		<property name="hibernate.current_session_context_class">thread</property>
+
+<!-- 
+        <property name="dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>  
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>  
+
+        <property name="connection.url">jdbc:mysql://localhost:3306/sandbox</property>  
+        <property name="connection.username">root</property>  
+        <property name="connection.password">justdoit</property> 
+     -->    
+<!-- 
+		<property name="c3p0.max_size">4</property>
+		<property name="c3p0.min_size">1</property>
+ -->
+		<property name="cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+		<property name="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+		
+		<!-- Mapping with model class containing annotations -->
+		<mapping class="com.journaldev.servlet.hibernate.model.Employee" />
+	</session-factory>
+</hibernate-configuration>
